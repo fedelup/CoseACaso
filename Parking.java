@@ -114,10 +114,10 @@ public class Parking implements Serializable, Cloneable {
 	}
 	
 	private boolean isSameCoordinates(Parking other){
-		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
+		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude)){
+			if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
 			return false;
-		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
-			return false;
+		}
 		return true;
 	}
 	
@@ -152,16 +152,22 @@ public class Parking implements Serializable, Cloneable {
 		//Check Area City and Country
 		if (!isSamePlace(other))
 			return false;
+		
 		if (id != other.id)
 			return false;
+		
 		if (!image.equals(other.image) && image != null)
 			return false;
+		
 		if (!isSameCoordinates(other))
 			return false;
+		
 		if (pincode != other.pincode)
 			return false;
+		
 		if (!state.equals(other.state) && state != null)
 			return false;
+		
 		if (userId != other.userId)
 			return false;
 		return true;
