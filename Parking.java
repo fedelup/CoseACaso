@@ -130,25 +130,31 @@ public class Parking implements Serializable, Cloneable {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if (this != obj || getClass() != obj.getClass())
 			return false;
 		Parking other = (Parking) obj;
-		if (area == null) {
-			if (other.area != null)
-				return false;
-		} 
+		if (!area.equals(other.area) && area != null)
+			return false;
+		if (!city.equals(other.city) && city != null) 
+			return false;
+		if (!country.equals(other.country) && country != null)
+			return false;
 		if (id != other.id)
 			return false;
-		
+		if (!image.equals(other.image) && image != null)
+			return false;
+		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
+			return false;
+		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
+			return false;
+		if (pincode != other.pincode)
+			return false;
+		if (!state.equals(other.state) && state != null)
+			return false;
 		if (userId != other.userId)
 			return false;
 		return true;
 	}
-	
 	
 	
 }
