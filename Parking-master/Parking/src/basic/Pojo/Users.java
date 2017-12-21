@@ -2,6 +2,7 @@ package basic.Pojo;
 
 import java.io.Serializable;
 
+//prova commento per commit
 public class Users implements Serializable, Cloneable
 {
 	private String fname, lname, gender, username, password, dob, area, state, city, country, usertype;
@@ -201,11 +202,19 @@ public class Users implements Serializable, Cloneable
 		if (getClass() != obj.getClass())
 			return false;
 		Users other = (Users) obj;
-		if (area == null) 
-				return false; 
-		if (!username.equals(other.username))
+		if (area == null) {
+			if (other.area != null)
+				return false;
+		} 
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
 			return false;
-		if (!usertype.equals(other.usertype))
+		if (usertype == null) {
+			if (other.usertype != null)
+				return false;
+		} else if (!usertype.equals(other.usertype))
 			return false;
 		return true;
 	}
