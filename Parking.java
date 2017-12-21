@@ -114,9 +114,7 @@ public class Parking implements Serializable, Cloneable {
 	}
 	
 	private boolean isSameCoordinates(Parking other){
-		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude) && Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
-			return false;
-		return true;
+		return (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude) && Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
 	}
 	
 	private boolean isSamePlace(Parking other){
