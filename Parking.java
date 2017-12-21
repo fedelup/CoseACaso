@@ -112,6 +112,22 @@ public class Parking implements Serializable, Cloneable {
 	public Object clone() throws CloneNotSupportedException{
 		return super.clone();
 	}
+	
+	private boolean isSameCoordinates(Parking other){
+		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
+			return false;
+		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
+			return false;
+		return true;
+	}
+	
+	private boolean isSamePlace(Parking other){
+		if (area.equals(other.area) && city.equals(other.city) && country.equals(other.country))
+			return true;
+		else
+			return false;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -133,19 +149,14 @@ public class Parking implements Serializable, Cloneable {
 		if (this != obj || getClass() != obj.getClass())
 			return false;
 		Parking other = (Parking) obj;
-		if (!area.equals(other.area) && area != null)
-			return false;
-		if (!city.equals(other.city) && city != null) 
-			return false;
-		if (!country.equals(other.country) && country != null)
+		//Check Area City and Country
+		if (!isSamePlace(other))
 			return false;
 		if (id != other.id)
 			return false;
 		if (!image.equals(other.image) && image != null)
 			return false;
-		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
-			return false;
-		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
+		if (!isSameCoordinates(other))
 			return false;
 		if (pincode != other.pincode)
 			return false;
