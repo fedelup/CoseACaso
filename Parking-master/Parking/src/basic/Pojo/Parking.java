@@ -140,36 +140,10 @@ public class Parking implements Serializable, Cloneable {
 		if (area == null) {
 			if (other.area != null)
 				return false;
-		} else if (!area.equals(other.area))
-			return false;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
-		if (country == null) {
-			if (other.country != null)
-				return false;
-		} else if (!country.equals(other.country))
-			return false;
+		} 
 		if (id != other.id)
 			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
-			return false;
-		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
-			return false;
-		if (pincode != other.pincode)
-			return false;
-		if (state == null) {
-			if (other.state != null)
-				return false;
-		} else if (!state.equals(other.state))
-			return false;
+		
 		if (userId != other.userId)
 			return false;
 		return true;
