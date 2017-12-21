@@ -203,9 +203,9 @@ public class Users implements Serializable, Cloneable
 		Users other = (Users) obj;
 		if (area == null) 
 				return false; 
-		if (!username.equals(other.username) || username == null)
+		if (!username.equals(other.username))
 			return false;
-		if (!usertype.equals(other.usertype) || usertype == null)
+		if (!usertype.equals(other.usertype))
 			return false;
 		return true;
 	}
